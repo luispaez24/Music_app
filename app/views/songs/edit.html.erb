@@ -1,0 +1,45 @@
+<h1>Edit Song</h1>
+
+<%= form_with(model: @song) do |form| %>
+  <% if @song.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(@song.errors.count, "error") %> prohibited this song from being updated:</h2>
+      <ul>
+        <% @song.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.label :title %>
+    <%= form.text_field :title, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :artist %>
+    <%= form.text_field :artist, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :album %>
+    <%= form.text_field :album, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :release_year %>
+    <%= form.number_field :release_year, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :genre %>
+    <%= form.text_field :genre, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.submit "Update Song", class: "btn btn-primary" %>
+  </div>
+<% end %>
+
+<%= link_to 'Back', songs_path, class: "btn btn-secondary" %>

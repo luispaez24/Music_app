@@ -1,0 +1,55 @@
+<%= form_with(model: song) do |form| %>
+  <% if song.errors.any? %>
+    <div class="alert alert-danger">
+      <h4><%= pluralize(song.errors.count, "error") %> prohibited this song from being saved:</h4>
+      <ul>
+        <% song.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="form-group">
+          <%= form.label :title, class: "form-label" %>
+          <%= form.text_field :title, class: "form-control" %>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="form-group">
+          <%= form.label :artist, class: "form-label" %>
+          <%= form.text_field :artist, class: "form-control" %>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="form-group">
+          <%= form.label :album, class: "form-label" %>
+          <%= form.text_field :album, class: "form-control" %>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="form-group">
+          <%= form.label :release_year, class: "form-label" %>
+          <%= form.number_field :release_year, class: "form-control" %>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="form-group">
+          <%= form.label :genre, class: "form-label" %>
+          <%= form.text_field :genre, class: "form-control" %>
+        </div>
+      </div>
+
+      <div class="col-12">
+        <%= form.submit "Save Song", class: "btn btn-primary" %>
+      </div>
+    </div>
+  </div>
+<% end %>
